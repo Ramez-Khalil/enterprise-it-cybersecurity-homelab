@@ -1,0 +1,27 @@
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Never commit configuration exports — they can contain hashes, keys, or admin settings
+*.conf
+*.cfg
+*.bak
+*-backup.*
+fortigate-config*
+*.pcap
+*.pcapng
+
+# Raw tool output pending review and redaction
+scan-output/
+raw-scans/
+
+# Internal content-planning material — never publish
+linkedin/
+linkedin-facts.md
+NOT-FOR-GITHUB/
