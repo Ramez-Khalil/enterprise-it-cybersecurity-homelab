@@ -81,40 +81,6 @@ More diagrams: [network topology](diagrams/network-topology.md) ·
 
 ---
 
-## Evidence
-
-Screenshots from the running lab. Click any image to view it full size. Serial numbers and MAC
-addresses are redacted.
-
-<table>
-<tr>
-<td width="50%" valign="top">
-<a href="screenshots/net-fortilink-switch-authorized.png"><img src="screenshots/net-fortilink-switch-authorized.png" alt="FortiSwitch 108F-POE authorized and online under FortiLink"></a>
-<br><b>FortiSwitch managed over FortiLink</b><br>
-<sub>Switch authorized and online on the FortiGate · <a href="docs/networking.md#4-fortiswitch-108f-poe-and-fortilink">details</a></sub>
-</td>
-<td width="50%" valign="top">
-<a href="screenshots/net-vlan20-dhcp-scope.png"><img src="screenshots/net-vlan20-dhcp-scope.png" alt="LAB-VLAN20 interface and DHCP server settings"></a>
-<br><b>LAB-VLAN20 interface + DHCP</b><br>
-<sub>192.168.20.1/24 · scope .100–.200 · DNS 1.1.1.1 / 8.8.8.8 · <a href="docs/networking.md#5-lab-vlan20">details</a></sub>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<a href="screenshots/ad-ou-structure.png"><img src="screenshots/ad-ou-structure.png" alt="Custom OPTIMA OU structure in Active Directory Users and Computers"></a>
-<br><b>Active Directory OU design</b><br>
-<sub>Custom OPTIMA tree on LAB-DC01 · <a href="docs/active-directory.md#2-organizational-unit-structure">details</a></sub>
-</td>
-<td width="50%" valign="top">
-<a href="screenshots/ad-ws01-dns-verification.png"><img src="screenshots/ad-ws01-dns-verification.png" alt="OPTIMA-WS01 resolving optima.test against the domain controller"></a>
-<br><b>Workstation → DC DNS check</b><br>
-<sub>optima.test resolves via LAB-DC01; domain join still in progress · <a href="docs/active-directory.md#5-workstation--optima-ws01-domain-join-in-progress">details</a></sub>
-</td>
-</tr>
-</table>
-
----
-
 ## Project Status
 
 ### ✅ Completed and verified
@@ -198,7 +164,6 @@ Full write-up with every test and what it proved: [docs/troubleshooting.md](docs
 | [Virtualization](docs/virtualization.md) | VirtualBox host, VM specs, virtual networking modes |
 | [Cybersecurity Lab](docs/cybersecurity-lab.md) | Scope rules, environment separation, planned testing workflow |
 | [Troubleshooting](docs/troubleshooting.md) | Methodology, case studies, command reference |
-| [Screenshots](screenshots/README.md) | Evidence index, naming, and redaction rules |
 
 ---
 
