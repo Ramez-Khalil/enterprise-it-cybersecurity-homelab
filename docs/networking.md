@@ -25,8 +25,8 @@ The FortiGate is the lab's edge device. It provides, in one unit:
 | Addressing | DHCP from the household router |
 | Address observed during setup | `192.168.1.59/24` |
 
-The address is DHCP-assigned and can change. It is recorded here because it appears in setup
-screenshots, not because the lab depends on it.
+The address is DHCP-assigned and can change. It is recorded as observed during setup, not
+because the lab depends on it.
 
 **Why MoCA.** The office is too far from the household router for a practical Ethernet run and
 the lab host cannot be relocated. The office has a coax jack, so MoCA adapters carry Ethernet
@@ -55,11 +55,6 @@ model used in Fortinet-based environments.
 | Authorization | FortiSwitch authorized and shown as managed |
 | Management model | Ports assigned to VLANs from the FortiGate managed-switch view |
 
-![FortiGate Managed FortiSwitches page showing the FortiSwitch 108F-POE online under FortiLink](../screenshots/net-fortilink-switch-authorized.png)
-
-*FortiGate → WiFi & Switch Controller → Managed FortiSwitches: the FortiSwitch 108F-POE is
-authorized and online under the `fortilink` interface. Switch serial number redacted.*
-
 ### Port assignments
 
 | FortiSwitch port | Assignment | Notes |
@@ -81,12 +76,6 @@ DHCP scope → switch port assignment → firewall policy → NAT → verificati
 | DHCP range | approximately `192.168.20.100` – `192.168.20.200` |
 | DNS delivered by DHCP | `1.1.1.1` and `8.8.8.8` |
 | Switch port | FortiSwitch Port 1 |
-
-![FortiGate Edit Interface page for LAB-VLAN20 showing its address and DHCP server settings](../screenshots/net-vlan20-dhcp-scope.png)
-
-*LAB-VLAN20 interface: `192.168.20.1/24`, DHCP server enabled with range
-`192.168.20.100`–`192.168.20.200`, gateway set to the interface IP, and DNS `1.1.1.1` /
-`8.8.8.8`. Interface MAC address redacted.*
 
 ### Verified results
 

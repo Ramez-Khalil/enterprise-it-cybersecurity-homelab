@@ -31,8 +31,6 @@ The following were confirmed healthy after promotion:
 | Netlogon | Running |
 | Domain controller advertising | Advertising as a DC |
 
-*Planned:* capture `dcdiag` output to the `screenshots/` folder as evidence.
-
 ## 2. Organizational Unit structure
 
 Default containers are left in place; all administered objects live in a custom OU tree so that
@@ -64,12 +62,6 @@ Design reasoning:
 - **`Service Accounts` isolated** — service accounts need different password and logon-rights
   handling from human accounts, and isolating them makes those differences enforceable.
 
-![Active Directory Users and Computers showing the custom OPTIMA OU tree](../screenshots/ad-ou-structure.png)
-
-*Active Directory Users and Computers on `LAB-DC01`: the custom `OPTIMA` OU tree with
-Computers (Servers, Workstations), Groups, Service Accounts, and Users (Finance, Human
-Resources, IT, Operations).*
-
 Diagram: [`diagrams/active-directory-structure.md`](../diagrams/active-directory-structure.md).
 
 ## 3. User accounts
@@ -82,8 +74,7 @@ Diagram: [`diagrams/active-directory-structure.md`](../diagrams/active-directory
 | Sofia Martinez | `smartinez` | Operations | `OPTIMA > Users > Operations` |
 
 These are fictional accounts created for the lab. No credentials are recorded in this
-repository, and no screenshot published here shows a password field, a password reset dialog, or
-a password-never-expires configuration with real values visible.
+repository.
 
 ## 4. Security groups
 
@@ -125,13 +116,6 @@ Full VM build detail is in [Virtualization](virtualization.md#3-optima-ws01).
 Those two results together prove the client can reach the DC and that the DC answers correctly
 for the domain — the prerequisites for a domain join.
 
-![PowerShell on OPTIMA-WS01 resolving optima.test against the domain controller and pinging it](../screenshots/ad-ws01-dns-verification.png)
-
-*On `OPTIMA-WS01`: `Resolve-DnsName optima.test -Server 192.168.56.10` returns an
-authoritative A record of `192.168.56.10`, and `ping` to the DC shows 0% loss. This is the
-PowerShell equivalent of the `nslookup` test above. It proves DNS and reachability only —
-**the workstation is not yet joined to the domain.***
-
 ### Not yet done
 
 The DNS resolver priority correction on the workstation is still in progress, so **none of the
@@ -171,9 +155,8 @@ the OU structure above:
 | *Planned* — Department drive mapping | Department OUs under `Users` | Per-department mapped drive |
 | *Planned* — Help desk delegation | `IT-HelpDesk` | Delegated password reset rights |
 
-Verification method, once applied: run `gpresult /r` on `OPTIMA-WS01` as the target user,
-confirm the GPO appears under applied policy objects, and capture the output to
-`screenshots/`.
+Verification method, once applied: run `gpresult /r` on `OPTIMA-WS01` as the target user and
+confirm the GPO appears under applied policy objects.
 
 ## 7. Authentication flow (once the domain join is complete)
 

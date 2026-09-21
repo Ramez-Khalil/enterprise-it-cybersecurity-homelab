@@ -119,7 +119,7 @@ really practising:
 3. **Observations** — raw results
 4. **Analysis** — what the results mean, false positives removed
 5. **Recommendation** — what would be remediated first, and why
-6. **Evidence** — screenshot references in `screenshots/`
+6. **Evidence** — command output supporting each finding
 
 **No completed test reports exist yet.** This section describes the intended format only.
 
