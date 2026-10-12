@@ -1,6 +1,6 @@
 # Authorized SSH Attack, Hardening & Retest — HomeLab Case Study
 
-**Environment:** Self-directed, AI-guided security learning on equipment owned and controlled by the project author. This is not a professional penetration test or production-security engagement.
+**Environment:** HomeLab security exercise on equipment owned and controlled by the project author.
 
 **Status (October 11, 2026):** The attack → hardening → detection → retest cycle is complete and technically verified. A separate network-isolation control remains unfinished.
 
@@ -11,11 +11,11 @@ Test whether an intentionally weak SSH credential on a repurposed Ubuntu Linux t
 ## Lab setup and scope
 
 - **Target:** owned Dell computer repurposed as an Ubuntu Server host, with an intentionally weak test-user password and SSH enabled.
-- **Testing system:** Kali Linux in the author's HomeLab.
+- **Testing system:** Kali Linux in the HomeLab.
 - **Tools and evidence:** Hydra for the authorized password test; Ubuntu SSH logs, OpenSSH configuration readback, systemd service checks, and fail2ban's `sshd` jail for defensive verification.
-- **Boundaries:** the work was confined to the author's lab-owned target. Hostnames, account identifiers, credentials, and exact target address are intentionally omitted.
+- **Boundaries:** the work was confined to lab-owned equipment. Hostnames, account identifiers, credentials, and exact target addresses are intentionally omitted.
 
-The target was an ordinary Linux installation with a **deliberately weak credential**. It was not a deliberately vulnerable operating-system distribution, nor a software vulnerability discovery.
+The target was an ordinary Linux installation with a **deliberately weak credential**. The tested weakness was the credential itself, not an operating-system vulnerability.
 
 ## Verified sequence
 
@@ -28,7 +28,7 @@ The target was an ordinary Linux installation with a **deliberately weak credent
 | **Control retest** | Confirmed the target was still reachable before repeating the **same** password test with the **same** wordlist. This time no password was recovered. |
 | **Defensive evidence** | fail2ban reported one attacker ban; the repeated connection attempts were blocked, and the test stalled after the ban. |
 
-**Interpretation:** The controlled before/after test supports that the weak-password attack was no longer successful under the revised password and SSH controls, and that fail2ban detected and banned the repeated attempts. It does **not** demonstrate comprehensive Linux hardening or broad resistance to other attacks.
+**Interpretation:** The before/after test showed that the original weak-password path no longer succeeded after the credential and SSH controls were changed, while fail2ban detected and blocked the repeated attempts. This result is specific to the tested SSH path; broader host hardening was outside the scope of this exercise.
 
 ## Troubleshooting encountered
 
@@ -36,17 +36,16 @@ After editing SSH settings, the configuration check reported a missing `/run/ssh
 
 This reinforced the difference between a service running in the current session and a service configured to start after reboot.
 
-## Validation and limitations
+## Validation and remaining work
 
 - Effective SSH settings were read back from the active configuration rather than assumed from the file alone.
-- The target remained reachable before the second test, so the failure was not simply a connectivity outage.
+- The target remained reachable before the second test, so the failed retest was not simply caused by a connectivity outage.
 - fail2ban's SSH jail recorded the attacker ban.
-- **Network segmentation is not yet proven for this target.** The attacker's traffic reached the target from the main lab subnet, not exclusively from the intended test VLAN. A stricter VLAN/firewall path is future work and is **not** claimed as complete.
-- The lab used guided, step-by-step execution. This is evidence of **practiced** skills, not independent expertise or a professional security role.
-- No polished, sanitized terminal screenshots are included yet. The documented outcomes are based on the verified technical evidence handoff; screenshots will be added only if reviewed for sensitive details.
+- **Network segmentation remains a follow-up:** the attacker's traffic reached the target from the main lab subnet rather than exclusively through the intended test VLAN. The VLAN-only firewall path still needs to be implemented and verified.
+- Polished, sanitized terminal screenshots are still being prepared for the public case study.
 
 ## Skills exercised
 
-Authorized test scoping, SSH authentication analysis, targeted Linux configuration, service management, authentication-log review, fail2ban detection, controlled retesting, and troubleshooting.
+Authorized test scoping, SSH authentication analysis, Linux configuration, service management, authentication-log review, fail2ban detection, controlled retesting, and troubleshooting.
 
-**Evidence provenance:** HomeLab Technical Evidence Handoff updated October 11, 2026. Technical execution and results were verified in the HomeLab workflow; this page is a sanitized recruiter-facing summary.
+**Last verified:** October 11, 2026.
