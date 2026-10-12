@@ -1,8 +1,8 @@
 # IT Infrastructure & Security HomeLab
 
-**Self-directed, AI-guided technical lab** using personally owned equipment to practice networking, Windows administration, access controls, troubleshooting, and defensive security testing.
+**Self-directed technical HomeLab** using personally owned equipment to practice networking, Windows administration, access controls, troubleshooting, and defensive security testing.
 
-I built a Fortinet-based segmented lab network and a separate Windows Server Active Directory environment. The work includes verified firewall allow/deny behavior, domain authentication, delegated access, file-share permissions, and a controlled Linux SSH attack → hardening → detection → retest cycle. These are **learning exercises, not professional production deployments**.
+I built a Fortinet-based segmented lab network and a separate Windows Server Active Directory environment. The work includes verified firewall allow/deny behavior, domain authentication, delegated access, file-share permissions, and a controlled Linux SSH attack → hardening → detection → retest cycle.
 
 ## Verified project work
 
@@ -36,7 +36,7 @@ flowchart TD
 
 ## Documentation and evidence
 
-- [Authorized SSH attack, hardening, detection & retest](docs/ssh-hardening-and-retest.md) — the October 11, 2026 completed attack-and-defend case study, including a real SSH service-startup fault and honest network-isolation limitation.
+- [Authorized SSH attack, hardening, detection & retest](docs/ssh-hardening-and-retest.md) — the October 11, 2026 completed attack-and-defend case study, including an SSH service-startup fault and the remaining network-isolation follow-up.
 - [Active Directory](docs/active-directory.md) — domain build, role-based access, verification, and remaining tasks.
 - [Networking](docs/networking.md) — Fortinet VLAN, DHCP, NAT, and firewall policy scope.
 - [Troubleshooting](docs/troubleshooting.md) — two DNS incidents and the diagnosis/fix methodology.
@@ -45,14 +45,13 @@ flowchart TD
 - [Cybersecurity lab](docs/cybersecurity-lab.md) — authorization boundaries and defensive testing.
 - [Architecture diagrams](diagrams/network-topology.md) and [AD diagram](diagrams/active-directory-structure.md) — conceptual topology and directory relationships.
 
-The HomeLab technical-evidence source is maintained separately. Public pages are curated from verified handoffs; **internal evidence handoff documents, credentials, private host/account names, and sensitive configuration are not published**. No sanitized screenshots have been uploaded to this repository for the latest verified milestones.
+Credentials, private host/account names, and sensitive configuration are excluded from public documentation. Sanitized screenshots will be added where they improve the case studies.
 
-## Limits and unfinished work
+## Current follow-ups
 
-- **Target network isolation is not yet verified.** Traffic from the main lab subnet reached the Ubuntu test target. Do not infer that the intended VLAN-only firewall policy exists.
-- Group Policy **drive mapping** is not complete. Only the 15-minute lock baseline is verified.
-- Aruba/Cisco switch configuration and multi-vendor trunking remain planned; racking hardware is not configuration.
-- The AD exercises, firewall work, and security testing were conducted with significant step-by-step AI assistance. They demonstrate hands-on **practice**, not independent mastery, penetration-testing experience, or enterprise operations ownership.
-- This portfolio is updated as evidence is validated. No uptime, enterprise users, production security, or incident-response outcomes are claimed.
+- **Target network isolation:** attack traffic reached the Ubuntu target from the main lab subnet, so the intended VLAN-only firewall path still needs to be implemented and verified.
+- **Group Policy drive mapping:** not yet completed; the verified baseline currently covers the 15-minute workstation lock.
+- **Aruba/Cisco switching:** switch configuration and multi-vendor trunking remain planned.
+- **Portfolio evidence:** add polished, sanitized screenshots for the strongest milestones.
 
 **Last evidence review:** October 11, 2026.
