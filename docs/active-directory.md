@@ -18,6 +18,12 @@ The lab uses a custom department-based OU structure for users, computers, groups
 - Configured an SMB department share with group-based NTFS permissions, removing broad access and restricting department directories by security group.
 - Tested **four** fictional department users. Users could access their own departmental folders; cross-department access checks were denied.
 
+## Drive-mapping screenshot observations (new evidence)
+
+A curated October 2026 evidence collection contains screenshots of four configured Group Policy Drive Maps entries, a Finance `S:` network drive visible in File Explorer, and a denied cross-department folder access attempt. One reviewed screenshot is published in the [HomeLab overview](../README.md#direct-screenshot-evidence--limited-scope).
+
+**Evidence scope:** these are observations from historical screenshots, not a new live functional test. The October 8 HomeLab master reference and project ledger predate this curation and still list drive mapping as an open next step. The technical owner must reconcile the records and verify the precise coverage before this case study calls drive mapping complete.
+
 ## Troubleshooting
 
 - A computer-scope `gpresult` check initially returned Access Denied until run elevated.
@@ -26,6 +32,6 @@ The lab uses a custom department-based OU structure for users, computers, groups
 
 ## What remains
 
-Department **drive mapping through Group Policy is not complete**, and a stale DNS-forwarder cleanup remains open. A negative delegation test and additional independent skill checks are also pending. No validated screenshot collection is published yet.
+**Drive-mapping completion status awaits technical-owner reconciliation** with the newer screenshot evidence; the full per-user test matrix is not independently established in this public write-up. Stale DNS-forwarder cleanup, a negative help-desk-delegation test, and independent skill checks remain open. A reviewed single-drive screenshot is published; the other originals are held privately pending sanitation.
 
 This page describes specific lab exercises completed with step-by-step guidance. It does not demonstrate enterprise service-desk or independent Windows Server administration experience.
